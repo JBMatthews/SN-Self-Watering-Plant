@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="3df2d13153196610130451a0a0490eab" label="Settings" max_length="40" name="x_461782_slf_water_settings" type="collection">
-        <element attributes="edge_encryption_enabled=true" label="Moisture Threshold" max_length="20" name="moisture_threshold" type="decimal"/>
-        <element label="Name" max_length="100" name="name" type="string"/>
-        <element label="Note" max_length="500" name="note" type="string"/>
-        <element label="Last Updated" max_length="40" name="last_updated" type="glide_date_time"/>
-        <element attributes="edge_encryption_enabled=true" choice="1" label="Auto Water Enabled&#9;" max_length="40" name="auto_water_enabled" type="boolean">
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Auto Water Enabled" max_length="40" name="auto_water_enabled" type="boolean">
             <choice/>
         </element>
+        <element label="Note" max_length="250" name="note" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Moisture Threshold" max_length="20" name="moisture_threshold" type="decimal"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Override Mode" max_length="40" name="override_mode" type="boolean">
             <choice/>
         </element>
+        <element label="Name" max_length="100" name="name" type="string"/>
+        <element label="Last Updated" max_length="40" name="last_updated" type="glide_date_time"/>
     </element>
 </database>
