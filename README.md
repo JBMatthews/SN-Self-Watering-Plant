@@ -67,7 +67,7 @@ To simulate a dry event in ServiceNow:
 - Save the record
 - You should receive a notification
 
-### Pi-side Test:
+zx### Pi-side Test:
 Run `moisture_sensor_code.py` and verify:
 - Successful POST (HTTP 201)
 - New Log entry appears in SN

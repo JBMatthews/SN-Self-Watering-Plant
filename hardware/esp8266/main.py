@@ -33,9 +33,9 @@ while True:
     percent = 100 - int((raw / 1023) * 100)
 
     if percent > 70:
-        status = "dry"
-    elif percent < 30:
         status = "watered"
+    elif percent < 40:
+        status = "dry"
     else:
         status = "ok"
 
@@ -49,4 +49,4 @@ while True:
         relay.value(0)
 
     print("⏳ Sleeping for 10 minutes...\n")
-    time.sleep(600)
+    time.sleep(200)
