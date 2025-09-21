@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_461782_slf_water.WateringUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This is the Script Include Utility to the Self-Watering Plant application</description>
+        <mobile_callable>false</mobile_callable>
+        <name>WateringUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var WateringUtils = Class.create();
+WateringUtils.prototype = {
+    initialize: function () {},
+
+    logWateringEvent: function (moistureLevel, sourceDevice, watered, note) {
+        var log = new GlideRecord('x_461782_slf_water_log');
+        log.initialize();
+        log.moisture_level = moistureLevel;
+        log.source_device = sourceDevice || 'ESP8266';
+        log.watered = watered ? true : false;
+        log.note = note || '';
+        log.insert();
+    },
+
+    type: 'WateringUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-21 13:49:59</sys_created_on>
+        <sys_id>5a6a69b29384b2106b8cf9f7dd03d62f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>WateringUtils</sys_name>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_update_name>sys_script_include_5a6a69b29384b2106b8cf9f7dd03d62f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-21 14:06:19</sys_updated_on>
+    </sys_script_include>
+</record_update>
