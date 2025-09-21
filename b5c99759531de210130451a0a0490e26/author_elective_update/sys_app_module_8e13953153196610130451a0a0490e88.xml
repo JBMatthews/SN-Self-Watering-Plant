@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Self-Watering System">e69a93d5531de210130451a0a0490e14</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Settings</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_461782_slf_water_settings</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_461782_slf_water.settings_user</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-05-04 16:40:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>8e13953153196610130451a0a0490e88</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Settings</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_update_name>sys_app_module_8e13953153196610130451a0a0490e88</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-21 12:41:11</sys_updated_on>
+        <timeline_page/>
+        <title>Settings</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</application>
+        <file_path/>
+        <instance_id>1eb1762c3b1be6d49aefe747f4e45ab0</instance_id>
+        <instance_name>dev355296</instance_name>
+        <name>sys_app_module_8e13953153196610130451a0a0490e88</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Self-Watering System">e69a93d5531de210130451a0a0490e14</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Settings</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_461782_slf_water_settings</name><order/><override_menu_roles>false</override_menu_roles><query/><report/><require_confirmation>true</require_confirmation><roles>x_461782_slf_water.settings_user</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-05-04 16:40:53</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>8e13953153196610130451a0a0490e88</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Settings</sys_name><sys_overrides/><sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package><sys_policy/><sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope><sys_update_name>sys_app_module_8e13953153196610130451a0a0490e88</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-09-21 12:41:11</sys_updated_on><timeline_page/><title>Settings</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-1153246035</payload_hash>
+        <record_name>Settings</record_name>
+        <reverted_from/>
+        <source>15fc73b193c4b2106b8cf9f7dd03d699</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-21 12:41:11</sys_created_on>
+        <sys_id>3fca11ba9304b2106b8cf9f7dd03d605</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1996c4ae5af0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-21 12:41:11</sys_updated_on>
+        <type>Module</type>
+        <update_guid>b3ca11ba9704b21029b6a79a1a42e005</update_guid>
+        <update_guid_history>b3ca11ba9704b21029b6a79a1a42e005:-1153246035,6caa9c8afe48b2102334306c3b621dbd:0,7fdcfb71e0c4b210ea0ca177806001f8:-709845110</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Settings">db1b1d7e9304b2106b8cf9f7dd03d60b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-21 12:42:31</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>496f0ce60a564ca8999d0d495c1f3584</sys_id>
+        <sys_metadata>8e13953153196610130451a0a0490e88</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Settings</sys_name>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_scope_delete display_value="">12768d8d37d649f7a31d31bffc5ba511</sys_scope_delete>
+        <sys_update_name>sys_app_module_8e13953153196610130451a0a0490e88</sys_update_name>
+        <sys_update_version display_value="sys_app_module_8e13953153196610130451a0a0490e88">3fca11ba9304b2106b8cf9f7dd03d605</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-21 12:42:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

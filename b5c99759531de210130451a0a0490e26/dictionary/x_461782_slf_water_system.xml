@@ -4,8 +4,18 @@
         <element label="Device ID" max_length="40" name="device_id" type="string"/>
         <element label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Location" max_length="40" name="location" type="string"/>
-        <element label="Last Contact" max_length="40" name="last_contact" type="glide_date_time"/>
+        <element label="Moisture Level" max_length="40" name="moisture_level" type="integer"/>
         <element display="true" label="Note" max_length="100" name="note" type="string"/>
+        <element label="Last Check-in" max_length="40" name="last_check_in" type="glide_date_time"/>
+        <element label="IP Address" max_length="40" name="ip_address" type="ip_addr"/>
         <element label="Name" max_length="40" name="name" type="string"/>
+        <element label="Last Watered" max_length="40" name="last_watered" type="glide_date_time"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Watering" sequence="200" value="watering"/>
+                <element inactive_on_update="false" label="Offline" sequence="300" value="offline"/>
+                <element inactive_on_update="false" label="Idle" sequence="100" value="idle"/>
+            </choice>
+        </element>
     </element>
 </database>

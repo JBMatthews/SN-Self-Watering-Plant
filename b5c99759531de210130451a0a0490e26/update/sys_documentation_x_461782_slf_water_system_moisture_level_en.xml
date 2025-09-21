@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="last_contact" label="Last Contact" language="en" table="x_461782_slf_water_system">
+    <sys_documentation element="moisture_level" label="Moisture Level" language="en" table="x_461782_slf_water_system">
         <sys_documentation action="INSERT_OR_UPDATE">
-            <element>last_contact</element>
+            <element>moisture_level</element>
             <help/>
             <hint/>
-            <label>Last Contact</label>
+            <label>Moisture Level</label>
             <language>en</language>
             <name>x_461782_slf_water_system</name>
-            <plural>Last Contacts</plural>
+            <plural>Moisture Levels</plural>
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-09-21 12:30:16</sys_created_on>
+            <sys_created_on>2025-09-21 13:00:39</sys_created_on>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name>Last Contact</sys_name>
+            <sys_name>Moisture Level</sys_name>
             <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
             <sys_policy/>
             <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
-            <sys_update_name>sys_documentation_x_461782_slf_water_system_last_contact_en</sys_update_name>
+            <sys_update_name>sys_documentation_x_461782_slf_water_system_moisture_level_en</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-09-21 12:30:16</sys_updated_on>
+            <sys_updated_on>2025-09-21 13:00:39</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>
