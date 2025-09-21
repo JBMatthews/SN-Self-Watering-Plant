@@ -10,10 +10,10 @@
         <image/>
         <link_type>LIST</link_type>
         <map_page/>
-        <mobile_title>All</mobile_title>
+        <mobile_title>Settings</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
-        <name>x_461782_slf_water_log</name>
-        <order>400</order>
+        <name>x_461782_slf_water_settings</name>
+        <order>100</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
@@ -21,21 +21,21 @@
         <roles/>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-05-03 13:15:58</sys_created_on>
+        <sys_created_on>2025-09-19 00:06:43</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>2a9ad799531de210130451a0a0490e06</sys_id>
+        <sys_id>2fcad0ca9348b2106b8cf9f7dd03d669</sys_id>
         <sys_mod_count>2</sys_mod_count>
-        <sys_name>All</sys_name>
+        <sys_name>Settings</sys_name>
         <sys_overrides/>
         <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
         <sys_policy/>
         <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
-        <sys_update_name>sys_app_module_2a9ad799531de210130451a0a0490e06</sys_update_name>
+        <sys_update_name>sys_app_module_2fcad0ca9348b2106b8cf9f7dd03d669</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-19 00:08:16</sys_updated_on>
+        <sys_updated_on>2025-09-19 00:08:08</sys_updated_on>
         <timeline_page/>
-        <title>All</title>
+        <title>Settings</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>

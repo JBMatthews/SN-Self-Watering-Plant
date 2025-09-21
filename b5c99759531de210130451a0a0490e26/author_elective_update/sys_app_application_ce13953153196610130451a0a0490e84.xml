@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="DELETE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name>Settings</name>
+        <order>100</order>
+        <roles>x_461782_slf_water.settings_user</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-05-04 16:40:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ce13953153196610130451a0a0490e84</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Settings</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_update_name>sys_app_application_ce13953153196610130451a0a0490e84</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-05-04 16:40:53</sys_updated_on>
+        <title>Settings</title>
+        <view_name/>
+    </sys_app_application>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</application>
+        <file_path/>
+        <instance_id>1eb1762c3b1be6d49aefe747f4e45ab0</instance_id>
+        <instance_name>dev355296</instance_name>
+        <name>sys_app_application_ce13953153196610130451a0a0490e84</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name>Settings</name>
+        <order>100</order>
+        <roles>x_461782_slf_water.settings_user</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-05-04 16:40:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ce13953153196610130451a0a0490e84</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Settings</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_update_name>sys_app_application_ce13953153196610130451a0a0490e84</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-05-04 16:40:53</sys_updated_on>
+        <title>Settings</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>]]></payload>
+        <payload_hash>-681828021</payload_hash>
+        <record_name>Settings</record_name>
+        <reverted_from/>
+        <source>82dc7b7193c4b2106b8cf9f7dd03d6bf</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-18 21:55:19</sys_created_on>
+        <sys_id>b7dcfb7193c4b2106b8cf9f7dd03d6e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1995ed323950000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-18 21:55:19</sys_updated_on>
+        <type>Application Menu</type>
+        <update_guid>77dcfb71dbc4b210d6c372301b2ec0e0</update_guid>
+        <update_guid_history>77dcfb71dbc4b210d6c372301b2ec0e0:-681828021</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Settings">6caa9c8a9348b2106b8cf9f7dd03d6b9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-19 00:05:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_application">sys_app_application</sys_db_object>
+        <sys_id>00f50f89c62a49d18451da8adc1f5ee1</sys_id>
+        <sys_metadata>ce13953153196610130451a0a0490e84</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Settings</sys_name>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_scope_delete display_value="">12768d8d37d649f7a31d31bffc5ba511</sys_scope_delete>
+        <sys_update_name>sys_app_application_ce13953153196610130451a0a0490e84</sys_update_name>
+        <sys_update_version display_value="sys_app_application_ce13953153196610130451a0a0490e84">b7dcfb7193c4b2106b8cf9f7dd03d6e0</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-19 00:05:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
