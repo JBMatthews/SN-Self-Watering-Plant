@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="device_location" label="Device Location" language="en" table="x_461782_slf_water_system">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>device_location</element>
+            <help/>
+            <hint/>
+            <label>Device Location</label>
+            <language>en</language>
+            <name>x_461782_slf_water_system</name>
+            <plural>Device Locations</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-09-21 13:05:03</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Device Location</sys_name>
+            <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+            <sys_update_name>sys_documentation_x_461782_slf_water_system_device_location_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-09-21 13:05:03</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
