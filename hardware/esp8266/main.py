@@ -1,52 +1,60 @@
-import machine
-import time
+# post_to_servicenow.py
+import network
 import urequests
-import connect
-from secrets import secrets
+import time
+from machine import ADC
+import secrets  # 🔐 External file
 
-connect.connect()
+adc = ADC(0)  # Moisture sensor analog pin
 
-adc = machine.ADC(0)
-relay = machine.Pin(14, machine.Pin.OUT)
+def read_moisture():
+    value = adc.read()
+    print("🌿 Moisture Reading:", value)
+    return value
 
-SN_INSTANCE = secrets['instance']
-SN_API_PATH = "/api/x_461782_slf_water/self_watering_api/log"
-USERNAME = secrets['username']
-PASSWORD = secrets['password_sn']
+def connect_wifi():
+    print("🔌 Connecting to Wi-Fi...")
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(secrets.WIFI_SSID, secrets.WIFI_PASSWORD)
 
-def log_to_servicenow(percent, status):
-    payload = {
-        "moisture_level": percent,
-        "status": status,
-        "source_device": "esp8266-v2"
-    }
-    try:
-        url = f"https://{SN_INSTANCE}{SN_API_PATH}"
-        res = urequests.post(url, json=payload, auth=(USERNAME, PASSWORD))
-        print("✅ Sent to SN:", payload, "| Response:", res.status_code)
-        res.close()
-    except Exception as e:
-        print("❌ SN POST error:", e)
+    timeout = 10
+    while not wlan.isconnected() and timeout > 0:
+        time.sleep(1)
+        timeout -= 1
 
-while True:
-    raw = adc.read()
-    percent = 100 - int((raw / 1023) * 100)
-
-    if percent > 70:
-        status = "watered"
-    elif percent < 40:
-        status = "dry"
+    if wlan.isconnected():
+        print("✅ Connected:", wlan.ifconfig())
     else:
-        status = "ok"
+        print("❌ Failed to connect to Wi-Fi")
 
-    print(f"🌱 Moisture: {percent}% | Status: {status}")
-    log_to_servicenow(percent, status)
+def post_to_servicenow(moisture_level):
+    url = f"{secrets.SN_INSTANCE}{secrets.SN_ENDPOINT}"
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    payload = {
+        "moisture_level": moisture_level,
+        "source_device": "ESP8266",
+        "note": "Live reading from ESP8266 sensor"
+    }
 
-    if status == "dry":
-        print("🚿 Watering plant...")
-        relay.value(1)
-        time.sleep(3)
-        relay.value(0)
+    try:
+        print(f"🌱 Posting moisture level {moisture_level} to ServiceNow...")
+        response = urequests.post(
+            url,
+            json=payload,
+            headers=headers,
+            auth=(secrets.SN_USER, secrets.SN_PASSWORD)
+        )
+        print("📡 Response:", response.status_code)
+        print(response.text)
+        response.close()
+    except Exception as e:
+        print("❌ Error:", e)
 
-    print("⏳ Sleeping for 10 minutes...\n")
-    time.sleep(200)
+# Run the program
+connect_wifi()
+if network.WLAN(network.STA_IF).isconnected():
+    level = read_moisture()
+    post_to_servicenow(level)
