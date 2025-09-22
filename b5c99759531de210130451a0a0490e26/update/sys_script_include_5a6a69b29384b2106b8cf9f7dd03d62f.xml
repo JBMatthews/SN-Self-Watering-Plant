@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_461782_slf_water.SelfWateringUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This is the Script Include Utility to the Self-Watering Plant application</description>
+        <mobile_callable>false</mobile_callable>
+        <name>SelfWateringUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var SelfWateringUtils = Class.create();
+SelfWateringUtils.prototype = {
+    initialize: function() {
+    },
+
+    logMoistureReading: function(data) {
+        // Example data: { device_id: "esp8266", moisture: 420 }
+        var sys = new GlideRecord('x_461782_slf_water_system');
+        sys.addQuery('device', data.device_id);
+        sys.query();
+        if (!sys.next()) {
+            gs.error('No matching System for device: ' + data.device_id);
+            return;
+        }
+
+        // Insert a new moisture log
+        var log = new GlideRecord('x_461782_slf_water_log');
+        log.initialize();
+        log.system = sys.sys_id;
+        log.moisture_level = data.moisture;
+        log.source_device = data.device_id;
+        log.status = 'received';
+        log.insert();
+
+        // If below threshold and auto_water is enabled
+        if (sys.moisture_threshold && data.moisture < sys.moisture_threshold && sys.auto_water_enabled) {
+            this.triggerWatering(sys);
+        }
+    },
+
+    triggerWatering: function(systemGr) {
+        systemGr.override_mode = true;
+        systemGr.update();
+
+        // Optionally insert another log
+        var log = new GlideRecord('x_461782_slf_water_log');
+        log.initialize();
+        log.system = systemGr.sys_id;
+        log.note = 'Auto-watering triggered';
+        log.status = 'watered';
+        log.watered = true;
+        log.insert();
+    },
+
+    type: 'SelfWateringUtils'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-21 13:49:59</sys_created_on>
+        <sys_id>5a6a69b29384b2106b8cf9f7dd03d62f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>SelfWateringUtils</sys_name>
+        <sys_package display_value="Self-Watering System" source="x_461782_slf_water">b5c99759531de210130451a0a0490e26</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Self-Watering System">b5c99759531de210130451a0a0490e26</sys_scope>
+        <sys_update_name>sys_script_include_5a6a69b29384b2106b8cf9f7dd03d62f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-21 14:26:30</sys_updated_on>
+    </sys_script_include>
+</record_update>
