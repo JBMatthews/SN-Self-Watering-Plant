@@ -1,96 +1,142 @@
-# 🌿 Self-Watering System — Version 1
+# Self-Watering Plant System
 
-**v1 Summary:**  
-A Raspberry Pi reads soil moisture levels and sends the data to ServiceNow. If the soil status is `dry`, ServiceNow sends a mobile notification prompting the user to water the plant manually.
-
----
-
-## 🧠 Overview
-
-This project bridges IoT and enterprise automation by combining a Raspberry Pi moisture sensor with a ServiceNow-based workflow system. The current version lays the groundwork for full automation by enabling real-time logging and alerting when your plant is too dry.
+Welcome to the **Self-Watering Plant Project Hub**! This system combines hardware automation, microcontroller programming, and ServiceNow integration to create a smart, self-watering solution that can scale from a single potted plant to an entire window garden of microgreens.
 
 ---
 
-## 🔁 System Workflow
+## Project Overview
 
-1. **Moisture Sensor → Pi:**  
-   The Raspberry Pi reads the soil moisture value using a digital or analog sensor.
+This project uses a **capacitive soil moisture sensor**, a **relay-controlled water pump**, and an **ESP8266 microcontroller** running MicroPython to:
 
-2. **Pi → ServiceNow:**  
-   The Pi sends a POST request to a Scripted REST API in ServiceNow with:
-   - `moisture_level`
-   - `status` (`dry`, `ok`, or `watered`)
-   - `source_device`
-
-3. **ServiceNow → Log Table:**  
-   Data is stored in the `Log` table with key fields:
-   - `moisture_level` (decimal)
-   - `status` (choice field)
-   - `was_watered` (boolean)
-   - `note`
-   - `severity` (info/warning/critical)
-
-4. **Log → Flow:**  
-   A Flow Designer workflow listens for new log entries.  
-   If `status = dry`, it sends a **mobile notification** (email or push) to alert the user.
+- Automatically detect soil moisture levels
+- Trigger a pump to water the plant
+- Send moisture + watering data to ServiceNow
+- Allow remote viewing/control via a ServiceNow dashboard
 
 ---
 
-## 🧱 Key Components
+## Architecture
 
-### ✅ Raspberry Pi
-- Python script reads moisture (currently simulated)
-- Sends HTTP POST to ServiceNow
-- Uses virtual environment + `requests` library
-
-### ✅ ServiceNow
-- Scoped App: `Self-Watering System`
-- Tables:
-  - `Log` – stores sensor data
-- Scripted REST API:
-  - Endpoint: `/api/x_yourscope/self_water_api/log`
-- Flow:
-  - Trigger: new Log with `status = dry`
-  - Action: send mobile/email alert
+```plaintext
+┌──────────────────┐        WiFi         ┌────────────────────────────┐
+│ ESP8266 (MicroPy)│ ─────────────────▶ │ ServiceNow (PDI Instance)  │
+│ └─ moisture sensor│                   │ └─ x_461782_slf_water_log  │
+│ └─ water pump     │                   │ └─ x_461782_slf_water_sys  │
+└──────────────────┘                   └────────────────────────────┘
+```
 
 ---
 
-## 🧪 Testing
+## Hardware Components
 
-### Manual Log Insert:
-To simulate a dry event in ServiceNow:
-
-- Go to `Self-Watering System > Log > New`
-- Set:
-  - `moisture_level` = `15.0`
-  - `status` = `dry`
-- Save the record
-- You should receive a notification
-
-zx### Pi-side Test:
-Run `moisture_sensor_code.py` and verify:
-- Successful POST (HTTP 201)
-- New Log entry appears in SN
-- Alert triggers if `status = dry`
+| Component            | Model / Specs                             |
+|----------------------|--------------------------------------------|
+| Microcontroller      | ESP8266 (HiLetGo Dev Board)                |
+| Moisture Sensor      | Capacitive Soil Sensor (Analog Output)     |
+| Relay Module         | 4-Channel Relay Board (Active Low Trigger) |
+| Submersible Pump     | 3–5V DC Micro Pump                          |
+| Tubing               | 5/32" or 4mm ID silicone tubing             |
+| Power                | USB Adapter (5V/2A)                         |
+| Wiring               | Male-to-Female jumper wires, terminals     |
 
 ---
 
-## 🔜 Coming in Version 2
+## 📂 Folder Structure
 
-- Config table to manage moisture thresholds, watering duration, and auto-watering flag
-- Webhook or polling from Pi for SN-initiated watering
-- Dashboard to visualize trends
-- Multi-device support
+```plaintext
+self-watering-system/
+├── hardware/
+│   ├── esp8266/
+│   │   ├── main.py           # Main program (runs on ESP)
+│   │   ├── connect.py        # Wi-Fi + ServiceNow setup
+│   │   ├── secrets.py        # Device IPs, Wi-Fi creds, SN creds
+│   │   ├── pump_test.py      # Manual pump testing
+│   │   └── webrepl/          # WebREPL client & tools
+│   └── pico/                 # (Phase 0 legacy code)
+├── servicenow/
+│   ├── api_docs.md           # REST API doc
+│   └── post_moisture_data.js # Sample POST script
+├── keepalive/
+│   └── keepalive.js          # Optional: PDI Keepalive cron
+├── sn_source_control.properties
+├── setup_self_watering.sh
+└── README.md
+```
 
 ---
 
-## 📅 Status
+## ⚙️ How It Works
 
-- ✅ Version 1 complete and tested
-- 🧪 Ready for sensor integration
-- 🔁 Live sync with GitHub repo
+1. `main.py` runs a loop every 5 minutes.
+2. Reads raw moisture level and converts to % (0–100).
+3. If below threshold (e.g., 35%), it waters for a few seconds.
+4. Sends logs (moisture + watered) to ServiceNow via REST API.
+5. You can view this in SN or manually trigger emergency watering.
 
 ---
 
-Created by James Matthews  
-MIT License
+## Useful Thonny / CLI Commands
+
+| Action                            | Command or Instruction |
+|----------------------------------|-------------------------|
+| Upload to ESP (WebREPL)          | `webrepl_cli.py -p waterme filename.py 10.0.0.105:` |
+| Run `main.py` via Thonny         | F5 (with interpreter set to MicroPython ESP8266) |
+| Soft reboot ESP                  | `Ctrl+D` or type `import machine; machine.reset()` |
+| Test pump manually               | `pump_test.py` |
+| View serial output               | Thonny REPL |
+| Install WebREPL CLI dependencies| `pip install websocket-client` |
+| Activate virtualenv (Mac)       | `source .venv/bin/activate` |
+
+---
+
+## Secrets & Configs
+
+Provided is a sample of what should be in `secrets.py`:
+
+```python
+SSID = "wifi_name"
+PASSWORD = "wifi_password"
+INSTANCE = "sn_pdi_url.service-now.com"
+USER = "admin"
+USER_PASSWORD = "pdi_password"
+ENDPOINT = "/api/end_point/path"
+RELAY_PIN = (pin used by ESP - mine uses "14")
+```
+**Don't commit secrets.py to GitHub!** (Already in `.gitignore`)
+
+---
+
+## Roadmap
+
+| Phase | Description |
+|-------|-------------|
+| Phase 1 | Single-plant watering + SN logging |
+| Phase 2 | Multi-plant support (scale to 4 pumps) |
+| Phase 3 | Window Garden w/ dashboard + remote controls |
+| Future | ESP32 upgrade, OTA updates, SN mobile integration |
+
+---
+
+## Debug Tips
+
+- Use `print()` in `main.py` to debug values and logic.
+- Confirm `relay.value(1)` activates pump (test script).
+- If device doesn’t connect: double-check `SSID` + `PASSWORD`.
+
+---
+
+## Built With
+
+- [MicroPython](https://micropython.org/)
+- [ESP8266](https://www.espressif.com/en/products/socs/esp8266)
+- [ServiceNow App Engine](https://developer.servicenow.com/)
+- [REST APIs](https://developer.servicenow.com/dev.do#!/reference/api)
+
+---
+
+## Author
+
+**James B. Matthews**  
+📍 Atlanta, GA  
+🔗 [GitHub](https://github.com/jamesbmatthews)  
+💼 [ServiceNow Developer](https://developer.servicenow.com/)
