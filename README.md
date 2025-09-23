@@ -45,22 +45,34 @@ This project uses a **capacitive soil moisture sensor**, a **relay-controlled wa
 
 ```plaintext
 self-watering-system/
+├── README.md
+├── sn_source_control.properties                  # Studio Source Control linking metadata
+│
+├── b5c99759531de210130451a0a0490e26/            # ServiceNow app XML (scoped app updates)
+│   ├── README.md
+│   ├── checksum.txt
+│   ├── dictionary/                              # Table definitions (log, settings, etc.)
+│   ├── update/                                  # Update records (UI Action, Flow, API op, etc.)
+│   └── author_elective_update/                  # Choices, UI policy, etc.
+│
+├── servicenow/
+│   ├── api_docs.md                              # REST endpoint docs for devices
+│   └── post_moisture_data.js                    # Simple example sender (local test)
+│
 ├── hardware/
 │   ├── esp8266/
-│   │   ├── main.py           # Main program (runs on ESP)
-│   │   ├── connect.py        # Wi-Fi + ServiceNow setup
-│   │   ├── secrets.py        # Device IPs, Wi-Fi creds, SN creds
-│   │   ├── pump_test.py      # Manual pump testing
-│   │   └── webrepl/          # WebREPL client & tools
-│   └── pico/                 # (Phase 0 legacy code)
-├── servicenow/
-│   ├── api_docs.md           # REST API doc
-│   └── post_moisture_data.js # Sample POST script
-├── keepalive/
-│   └── keepalive.js          # Optional: PDI Keepalive cron
-├── sn_source_control.properties
-├── setup_self_watering.sh
-└── README.md
+│   ├── main.py                              # Production loop (reads % moisture, waters, logs to SN)
+│   ├── secrets.py                           # Wi-Fi & SN creds + thresholds (gitignored)
+│   ├── pump_test.py                         # Quick relay/pump test (GPIO only)
+│   └── webrepl/                             # WebREPL client & helpers
+│      ├── webrepl_cli.py
+│      ├── webrepl.html
+│      ├── webrepl.js
+│      ├── webrepl.css
+│      ├── term.js
+│      ├── FileSaver.js
+│      └── README.md
+│   
 ```
 
 ---
