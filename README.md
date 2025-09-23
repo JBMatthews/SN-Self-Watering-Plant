@@ -18,11 +18,11 @@ This project uses a **capacitive soil moisture sensor**, a **relay-controlled wa
 ## Architecture
 
 ```plaintext
-┌──────────────────┐        WiFi         ┌────────────────────────────┐
-│ ESP8266 (MicroPy)│ ─────────────────▶ │ ServiceNow (PDI Instance)  │
-│ └─ moisture sensor│                   │ └─ x_461782_slf_water_log  │
-│ └─ water pump     │                   │ └─ x_461782_slf_water_sys  │
-└──────────────────┘                   └────────────────────────────┘
+┌───────────────────┐        WiFi         ┌────────────────────────────┐
+│ ESP8266 (MicroPy) │ ──────────────────▶ │ ServiceNow (PDI Instance)  │
+│ └─ moisture sensor│                     │ └─ x_461782_slf_water_log  │
+│ └─ water pump     │                     │ └─ x_461782_slf_water_sys  │
+└───────────────────┘                     └────────────────────────────┘
 ```
 
 ---
@@ -41,7 +41,7 @@ This project uses a **capacitive soil moisture sensor**, a **relay-controlled wa
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 
 ```plaintext
 self-watering-system/
@@ -65,7 +65,7 @@ self-watering-system/
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. `main.py` runs a loop every 5 minutes.
 2. Reads raw moisture level and converts to % (0–100).
