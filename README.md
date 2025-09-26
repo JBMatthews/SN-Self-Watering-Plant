@@ -145,10 +145,3 @@ RELAY_PIN = (pin used by ESP - mine uses "14")
 - [REST APIs](https://developer.servicenow.com/dev.do#!/reference/api)
 
 ---
-
-## Author
-
-**James B. Matthews**  
-Atlanta, GA  
-[GitHub](https://github.com/jamesbmatthews)  
-[Website](https://jamesbmatthews.tech/)
